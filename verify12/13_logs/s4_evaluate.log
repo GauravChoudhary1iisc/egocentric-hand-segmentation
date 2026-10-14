@@ -1,0 +1,61 @@
+python 3.12.3 | torch 2.5.1+cu121 | CUDA (torch build) 12.1 | cudnn 90100
+GPU: NVIDIA GeForce RTX 3050 | total VRAM 7.65 GiB
+evaluating once on: ['test_indomain', 'test_outdomain'] | frozen config: {'gdino_box_threshold': 0.2, 'gdino_text_threshold': 0.2, 'yolo_conf': 0.2, 'yolo_best_epoch': 39, 'batch_size': 2}
+=== QA gate on test_indomain (gate.json written before test) ===
+  A: mean_iou_hand_images = 0.5000 >= 0.5571 -> FAIL
+  A: share_iou_lt_0_5 = 0.5471 <= 0.4614 -> FAIL
+  A: OVERALL FAIL
+  B: mean_iou_hand_images = 0.8593 >= 0.5571 -> PASS
+  B: share_iou_lt_0_5 = 0.0560 <= 0.4614 -> PASS
+  B: OVERALL PASS
+=== test_indomain (bootstrap unit: video/sequence) ===
+  [A] n_hand_images=1126, n_hand_free_images=0, mean_iou=0.5000429121959922, mean_iou_ci95=[0.4805526632277239, 0.5199905674394628], mean_dice=0.6157585202550241, share_iou_lt_0_5=0.5470692717584369, det_precision=0.21853388658367912, det_recall=0.4555502162421913, ap50=0.10771950183911971, fp_rate_hand_free=None
+      by_source: {'authors_own(escape)': {'n': 47, 'mean_iou': 0.382752143252709}, 'ego4d': {'n': 774, 'mean_iou': 0.47394395049990706}, 'epic_kitchens': {'n': 217, 'mean_iou': 0.6006442484698804}, 'thu_read': {'n': 88, 'mean_iou': 0.5441653272149742}}
+      by_blur_bucket: {'high': {'n': 303, 'mean_iou': 0.5119099358030603}, 'low': {'n': 426, 'mean_iou': 0.48494229224370117}, 'mid': {'n': 397, 'mean_iou': 0.5071894007268091}}
+      by_size_bucket: {'high': {'n': 405, 'mean_iou': 0.4881382215746149}, 'low': {'n': 350, 'mean_iou': 0.52786623306558}, 'mid': {'n': 371, 'mean_iou': 0.4867901828086661}}
+      fp_rate_hand_free_by_source: {}
+  [B] n_hand_images=1126, n_hand_free_images=0, mean_iou=0.8592847390262845, mean_iou_ci95=[0.8474427208227995, 0.8695047751155973], mean_dice=0.9135566257349378, share_iou_lt_0_5=0.05595026642984014, det_precision=0.9258916164891153, det_recall=0.9605958673714561, ap50=0.9779129498147114, fp_rate_hand_free=None
+      by_source: {'authors_own(escape)': {'n': 47, 'mean_iou': 0.797130139567235}, 'ego4d': {'n': 774, 'mean_iou': 0.8462026853594692}, 'epic_kitchens': {'n': 217, 'mean_iou': 0.9055908613297933}, 'thu_read': {'n': 88, 'mean_iou': 0.8933568659902519}}
+      by_blur_bucket: {'high': {'n': 303, 'mean_iou': 0.8719036684973209}, 'low': {'n': 426, 'mean_iou': 0.8481577577243048}, 'mid': {'n': 397, 'mean_iou': 0.8615934503736886}}
+      by_size_bucket: {'high': {'n': 405, 'mean_iou': 0.8612880201370078}, 'low': {'n': 350, 'mean_iou': 0.8493840634823775}, 'mid': {'n': 371, 'mean_iou': 0.8664381287581565}}
+      fp_rate_hand_free_by_source: {}
+  paired B-A: {'mean_iou_diff': 0.3592418268302924, 'paired_bootstrap_ci95': [0.33905253085186243, 0.37941891698759944], 'wilcoxon_statistic': 27601.0, 'wilcoxon_p': 5.457909812246805e-155, 'n_pairs': 1126}
+  regressions (B worse than A by IoU > 0.2): 18
+      ego4d_358b8b7d-ca51-4470-9030-5d14e9d21abf_159600: A=0.972 B=0.313
+      ego4d_3f0aa3e8-6c8c-4eab-ad6e-00d3876768d8_46350: A=0.981 B=0.323
+      ego4d_8a280483-bbfd-4f24-9654-bf6a008e406d_14400: A=0.960 B=0.352
+      ego4d_bc07c7cb-4747-47ce-89d9-4c135345ff96_28200: A=0.787 B=0.193
+      thu_thumb_RGB_thumb_lhh_3_50: A=0.712 B=0.189
+      ego4d_3e63e11a-44f6-4094-9010-e549c60e155d_7200: A=0.757 B=0.239
+      ego4d_3c7f716e-b3c3-4e9b-96a4-b5997a29a3e7_21150: A=0.943 B=0.433
+      ego4d_02d1f024-1470-4ce6-acde-b938f7847eb6_37350: A=0.975 B=0.468
+      ego4d_d8217a15-4527-4557-94c5-df4eb78b748a_48150: A=0.977 B=0.510
+      ego4d_12bf3659-40c4-4094-a4d3-507ec04bc512_10050: A=0.899 B=0.435
+      ego4d_484249cf-8898-4d7a-bb1f-18bcbcf4dce9_12150: A=0.481 B=0.043
+      ego4d_72546b99-74eb-49f3-9e90-b0773dd7ef24_750: A=0.656 B=0.278
+      ego4d_712ef11e-dc19-4fe1-ae66-0d9ec934196e_92400: A=0.964 B=0.613
+      ego4d_291953b9-d7f3-403b-8b8a-7aa935847064_32550: A=0.955 B=0.614
+      ego4d_2d386a76-9ef1-49ff-982e-d5e403bba456_3300: A=0.827 B=0.489
+      ego4d_85c33c5b-b611-452e-afc4-fb9963206e38_5250: A=0.615 B=0.291
+      ego4d_ee3e83ac-28ad-4f6d-ab48-51d7a6b5e497_9600: A=0.403 B=0.190
+      ego4d_9d2ec4ad-945f-4614-b41f-24260de662f6_32250: A=0.920 B=0.712
+=== test_outdomain (bootstrap unit: video/sequence) ===
+  [A] n_hand_images=500, n_hand_free_images=0, mean_iou=0.6483566470313668, mean_iou_ci95=[0.6062714482374656, 0.6997962352953033], mean_dice=0.756170556666699, share_iou_lt_0_5=0.33, det_precision=0.2785996055226824, det_recall=0.6042780748663101, ap50=0.18878946771977095, fp_rate_hand_free=None
+      by_source: {'youtube': {'n': 500, 'mean_iou': 0.6483566470313668}}
+      by_blur_bucket: {'high': {'n': 3, 'mean_iou': 0.6808206179578975}, 'low': {'n': 391, 'mean_iou': 0.6477841330836523}, 'mid': {'n': 106, 'mean_iou': 0.6495496757179393}}
+      by_size_bucket: {'high': {'n': 134, 'mean_iou': 0.5830932623055718}, 'low': {'n': 175, 'mean_iou': 0.6887905556783622}, 'mid': {'n': 191, 'mean_iou': 0.6570967493352009}}
+      fp_rate_hand_free_by_source: {}
+  [B] n_hand_images=500, n_hand_free_images=0, mean_iou=0.9206753999971506, mean_iou_ci95=[0.9116091627397334, 0.9285147904434582], mean_dice=0.9563587090470684, share_iou_lt_0_5=0.01, det_precision=0.9706498951781971, det_recall=0.9903743315508021, ap50=0.9956167561680953, fp_rate_hand_free=None
+      by_source: {'youtube': {'n': 500, 'mean_iou': 0.9206753999971506}}
+      by_blur_bucket: {'high': {'n': 3, 'mean_iou': 0.962896480896017}, 'low': {'n': 391, 'mean_iou': 0.9198316424119488}, 'mid': {'n': 106, 'mean_iou': 0.9225928148378797}}
+      by_size_bucket: {'high': {'n': 134, 'mean_iou': 0.9134589602369667}, 'low': {'n': 175, 'mean_iou': 0.9163465354269292}, 'mid': {'n': 191, 'mean_iou': 0.9297044797230846}}
+      fp_rate_hand_free_by_source: {}
+  paired B-A: {'mean_iou_diff': 0.2723187529657839, 'paired_bootstrap_ci95': [0.22401244656104538, 0.3098931815954364], 'wilcoxon_statistic': 5308.0, 'wilcoxon_p': 2.3564122019251714e-70, 'n_pairs': 500}
+  regressions (B worse than A by IoU > 0.2): 3
+      youtube_Late_000000: A=0.930 B=0.242
+      youtube_Really_006300: A=0.893 B=0.599
+      youtube_Late_004380: A=0.937 B=0.684
+=== drift: reference=val (n=518) vs test_outdomain (n=500) ===
+  brightness: PSI=0.1102 KS D=0.1564 p=6.58e-06 (ref mean 96.23, new mean 100.10)
+  contrast: PSI=0.5131 KS D=0.2727 p=3.66e-17 (ref mean 57.74, new mean 51.61)
+  blur: PSI=2.6475 KS D=0.5312 p=3e-66 (ref mean 577.39, new mean 88.02)

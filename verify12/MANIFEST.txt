@@ -1,0 +1,45 @@
+Files in review order. Timestamps are the original modification times.
+NOTE: 05_split.json and 13_logs/* had absolute local paths replaced with project-relative paths; logs also had progress-bar lines removed. Content otherwise unchanged.
+
+2026-10-08_17:38:34 778696 bytes 01_per_image.csv
+2026-10-08_17:38:34 12062 bytes 02_metrics.json
+2026-10-08_15:32:37 8908 bytes 03_common.py
+2026-10-08_14:20:12 8978 bytes 04_s4_evaluate.py
+2026-10-08_16:20:28 2115190 bytes 05_split.json
+2026-10-08_17:20:01 5984 bytes 06_config.json
+2026-10-08_16:26:50 312 bytes 07_gate.json
+2026-10-08_17:18:55 5464 bytes 08_training_log.csv
+2026-10-08_14:18:43 4336 bytes 09_pipeline.py
+2026-10-08_14:19:09 3688 bytes 10_s2_val_baseline.py
+2026-10-08_16:33:57 4869 bytes 11_s3_train_yolo.py
+2026-10-08_15:32:05 8089 bytes 12_s1_data_checks.py
+2026-10-08_17:44:06 18 bytes 13_logs/make_readme.log
+2026-10-08_16:20:28 5141 bytes 13_logs/s1_data_checks.log
+2026-10-08_16:26:50 3139 bytes 13_logs/s2_val_baseline.log
+2026-10-08_17:20:20 24376 bytes 13_logs/s3_train_yolo.log
+2026-10-08_17:38:34 6373 bytes 13_logs/s4_evaluate.log
+2026-10-08_17:44:03 441 bytes 13_logs/s6_docker_check.log
+2026-10-08_17:43:53 1201 bytes 13_logs/s6_throughput.log
+2026-10-08_17:44:05 261 bytes 13_logs/s7_face_blur.log
+
+sha256:
+616035c6e2ee7ef83c196cf1519ac561f037d709b0616d737ae8da1f8e3086df  01_per_image.csv
+ed2b020207e440b47820fe285e391f6fa85797e4876fba6ff868ae2683bd2d7c  02_metrics.json
+fbf6864fd92b432b43d217d8d68bab4741d23613695b44d9b224d524f6208729  03_common.py
+6f801aa464179d40ee7070141d3ae181990e19a6206a0ec3e318483c6842f061  04_s4_evaluate.py
+e3511621b298e9ceca6944b9f4ec93c86f85c5ab61db18ab267883729edaaaba  05_split.json
+92bfb2fb567be3831cf08f06e7edb97d4796695cd4827c1017e9c1c2fb4cb0fd  06_config.json
+b550eb65ba0dacc38e01cbaff777c98a988d7cce88333f11b45a16dee7c9e46b  07_gate.json
+ec8ff4e2ecc1edb04cec54cdf0acd120dddfdc65bff50d4979c888ceaf73359c  08_training_log.csv
+2b3bd30b1a719020006fd94fab29a45ae30dafcbc155dd55f64f0eb8d2f7db4a  09_pipeline.py
+667cbea5a8957d31f70b87494cc29f3b94bd10e4fa50071828f84e2c219b2e7e  10_s2_val_baseline.py
+3b171a6c59ffa1e6d116da389ca5179e03cbe3f419744161a0719d01e32266a1  11_s3_train_yolo.py
+551fc993265539661fd832aa7a8373f8ab9e08e2401809687bd7d1f0c95768ad  12_s1_data_checks.py
+10d757800b0f7695ed3921d00644dc8019865dd158ba53b0a0847ceabcc86b46  13_logs/make_readme.log
+083b6b4489a99fb2351c362471db6035ac980b2490ea5ab0620bd1ed7eb6ca93  13_logs/s1_data_checks.log
+fc9a5a81531c78198b5d19227e4b6a807d7f619829b4ab7e62d291f9b41b4242  13_logs/s2_val_baseline.log
+85e9ff491590a7d038c37f045896d5988f2683001b5bd4c667d5c95337501bd0  13_logs/s3_train_yolo.log
+d7453c1085beab81a63a82eeb6ba9a964387111355c18750d30a1d04a5d15c58  13_logs/s4_evaluate.log
+d217c54d67135c4d4912a00e4ab523cef472c64064735228c729b758546990c1  13_logs/s6_docker_check.log
+81dce685adf531c4b210a97ffbc6ab20033ccd9e2558e15407add10efcf3742b  13_logs/s6_throughput.log
+54e54457139f89084069f873725d4247454f1ffeb51f17d410047c33ccb2d753  13_logs/s7_face_blur.log

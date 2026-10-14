@@ -1,0 +1,1 @@
+face blur (qualitative only, no ground truth): 30 frames, faces detected per frame: [0, 2, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 5, 1, 2, 0, 1, 1, 2, 4, 0, 1, 3, 0, 8, 2, 0, 0, 0, 3]; frames with >=1 detection: 15. Outputs in face_blur_examples/ for visual inspection.

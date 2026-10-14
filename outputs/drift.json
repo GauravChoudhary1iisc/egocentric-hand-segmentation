@@ -1,0 +1,33 @@
+{
+  "reference": "val (in-domain)",
+  "new_batch": "test_outdomain",
+  "n_ref": 518,
+  "n_new": 500,
+  "note": "PSI > 0.2 is a common rule-of-thumb convention, not a proven threshold.",
+  "features": {
+    "brightness": {
+      "psi": 0.11015086916610924,
+      "ks_statistic": 0.15635521235521235,
+      "ks_p": 6.582173654951964e-06,
+      "ref_mean": 96.22822798684852,
+      "new_mean": 100.10357601851854,
+      "psi_gt_0_2_convention": false
+    },
+    "contrast": {
+      "psi": 0.5131369824176031,
+      "ks_statistic": 0.2726872586872587,
+      "ks_p": 3.6633608525590144e-17,
+      "ref_mean": 57.73933252053944,
+      "new_mean": 51.60580379431939,
+      "psi_gt_0_2_convention": true
+    },
+    "blur": {
+      "psi": 2.6474953499883807,
+      "ks_statistic": 0.5311505791505792,
+      "ks_p": 3.002753583563811e-66,
+      "ref_mean": 577.3876557697766,
+      "new_mean": 88.02165076286788,
+      "psi_gt_0_2_convention": true
+    }
+  }
+}

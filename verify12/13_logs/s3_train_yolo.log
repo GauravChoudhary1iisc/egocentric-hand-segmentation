@@ -1,0 +1,209 @@
+python 3.12.3 | torch 2.5.1+cu121 | CUDA (torch build) 12.1 | cudnn 90100
+GPU: NVIDIA GeForce RTX 3050 | total VRAM 7.65 GiB
+YOLO train: 4011 images, 7271 hand boxes, 0 images without boxes (kept as background)
+YOLO val: 518 images, 948 hand boxes, 0 images without boxes (kept as background)
+timing YOLO11s fwd+bwd (synthetic 640px, AMP): batch 8: 114 ms/batch, peak 1.84 GiB -> ~0.9 min/epoch compute only (data loading/val excluded)
+timing YOLO11s fwd+bwd (synthetic 640px, AMP): batch 16: 219 ms/batch, peak 3.52 GiB -> ~0.9 min/epoch compute only (data loading/val excluded)
+chosen YOLO batch 16 (variant fixed by task: small)
+Ultralytics 8.3.40 🚀 Python-3.12.3 torch-2.5.1+cu121 CUDA:0 (NVIDIA GeForce RTX 3050, 7833MiB)
+[34m[1mengine/trainer: [0mtask=detect, mode=train, model=yolo11s.pt, data=yolo_data/data.yaml, epochs=40, time=None, patience=8, batch=16, imgsz=640, save=True, save_period=1, cache=False, device=None, workers=6, project=runs, name=yolo_hand, exist_ok=True, pretrained=True, optimizer=auto, verbose=False, seed=42, deterministic=True, single_cls=True, rect=False, cos_lr=False, close_mosaic=10, resume=False, amp=True, fraction=1.0, profile=False, freeze=None, multi_scale=False, overlap_mask=True, mask_ratio=4, dropout=0.0, val=True, split=val, save_json=False, save_hybrid=False, conf=None, iou=0.7, max_det=300, half=False, dnn=False, plots=False, source=None, vid_stride=1, stream_buffer=False, visualize=False, augment=False, agnostic_nms=False, classes=None, retina_masks=False, embed=None, show=False, save_frames=False, save_txt=False, save_conf=False, save_crop=False, show_labels=True, show_conf=True, show_boxes=True, line_width=None, format=torchscript, keras=False, optimize=False, int8=False, dynamic=False, simplify=True, opset=None, workspace=None, nms=False, lr0=0.01, lrf=0.01, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=7.5, cls=0.5, dfl=1.5, pose=12.0, kobj=1.0, nbs=64, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.1, scale=0.5, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, bgr=0.0, mosaic=1.0, mixup=0.0, copy_paste=0.0, copy_paste_mode=flip, auto_augment=randaugment, erasing=0.4, crop_fraction=1.0, cfg=None, tracker=botsort.yaml, save_dir=runs/yolo_hand
+Overriding model.yaml nc=80 with nc=1
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       928  ultralytics.nn.modules.conv.Conv             [3, 32, 3, 2]                 
+  1                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
+  2                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  3                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  4                  -1  1    103360  ultralytics.nn.modules.block.C3k2            [128, 256, 1, False, 0.25]    
+  5                  -1  1    590336  ultralytics.nn.modules.conv.Conv             [256, 256, 3, 2]              
+  6                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  7                  -1  1   1180672  ultralytics.nn.modules.conv.Conv             [256, 512, 3, 2]              
+  8                  -1  1   1380352  ultralytics.nn.modules.block.C3k2            [512, 512, 1, True]           
+  9                  -1  1    656896  ultralytics.nn.modules.block.SPPF            [512, 512, 5]                 
+ 10                  -1  1    990976  ultralytics.nn.modules.block.C2PSA           [512, 512, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    443776  ultralytics.nn.modules.block.C3k2            [768, 256, 1, False]          
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1    127680  ultralytics.nn.modules.block.C3k2            [512, 128, 1, False]          
+ 17                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1    345472  ultralytics.nn.modules.block.C3k2            [384, 256, 1, False]          
+ 20                  -1  1    590336  ultralytics.nn.modules.conv.Conv             [256, 256, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1   1511424  ultralytics.nn.modules.block.C3k2            [768, 512, 1, True]           
+ 23        [16, 19, 22]  1    819795  ultralytics.nn.modules.head.Detect           [1, [128, 256, 512]]          
+YOLO11s summary: 319 layers, 9,428,179 parameters, 9,428,163 gradients, 21.5 GFLOPs
+Transferred 493/499 items from pretrained weights
+Freezing layer 'model.23.dfl.conv.weight'
+[34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+Downloading https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n.pt to 'yolo11n.pt'...
+  0%|          | 0.00/5.35M [00:00<?, ?B/s]
+ 30%|███       | 1.62M/5.35M [00:00<00:00, 15.8MB/s]
+100%|██████████| 5.35M/5.35M [00:00<00:00, 32.2MB/s]
+[34m[1mAMP: [0mchecks passed ✅
+[34m[1mtrain: [0mNew cache created: yolo_data/train/labels.cache
+[34m[1mval: [0mNew cache created: yolo_data/val/labels.cache
+[34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[34m[1moptimizer:[0m AdamW(lr=0.002, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.0005), 87 bias(decay=0.0)
+Image sizes 640 train, 640 val
+Using 6 dataloader workers
+Logging results to [1mruns/yolo_hand[0m
+Starting training for 40 epochs...
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.843      0.796       0.88      0.674
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.704      0.629      0.676      0.451
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.855       0.82      0.877      0.686
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.904       0.86       0.93      0.754
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.946      0.876      0.944      0.791
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.947      0.914      0.965      0.816
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.913       0.92      0.953      0.819
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948       0.94      0.907      0.962      0.813
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948       0.96      0.918      0.961      0.836
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.957      0.912       0.97      0.846
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.959      0.934      0.977      0.869
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.954      0.921      0.972      0.851
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.947      0.926      0.971      0.859
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.962      0.939       0.98      0.874
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.963      0.923       0.97      0.863
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.969      0.943      0.977      0.876
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948       0.97      0.939       0.98      0.885
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.961      0.935      0.975      0.876
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.974      0.944      0.985       0.89
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.969      0.936      0.978      0.886
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.971      0.943       0.98       0.89
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.975       0.94      0.979      0.898
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.972      0.948      0.984      0.903
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.962      0.955      0.985      0.905
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948       0.97       0.95      0.985      0.908
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.975       0.94      0.981      0.899
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.978      0.947      0.985      0.901
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.966      0.958      0.985      0.913
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.981      0.946      0.985      0.915
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.986      0.953      0.987      0.917
+Closing dataloader mosaic
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.979      0.943      0.986      0.908
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.965      0.954      0.986      0.906
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.972      0.954      0.985      0.911
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.984      0.945      0.987      0.918
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.983      0.948      0.987      0.919
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948       0.96      0.964      0.987      0.926
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.961      0.969      0.988      0.927
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.974      0.957      0.987      0.924
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.972      0.964      0.988      0.929
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+                   all        518        948      0.966      0.972      0.986      0.928
+40 epochs completed in 0.738 hours.
+Optimizer stripped from runs/yolo_hand/weights/last.pt, 19.2MB
+Optimizer stripped from runs/yolo_hand/weights/best.pt, 19.2MB
+Validating runs/yolo_hand/weights/best.pt...
+Ultralytics 8.3.40 🚀 Python-3.12.3 torch-2.5.1+cu121 CUDA:0 (NVIDIA GeForce RTX 3050, 7833MiB)
+YOLO11s summary (fused): 238 layers, 9,413,187 parameters, 0 gradients, 21.3 GFLOPs
+                   all        518        948      0.972      0.964      0.988      0.929
+Speed: 0.1ms preprocess, 3.2ms inference, 0.0ms loss, 0.2ms postprocess per image
+    epoch       time  train/box_loss  train/cls_loss  train/dfl_loss  metrics/precision(B)  metrics/recall(B)  metrics/mAP50(B)  metrics/mAP50-95(B)  val/box_loss  val/cls_loss  val/dfl_loss    lr/pg0    lr/pg1    lr/pg2   fitness
+0       1    67.5865         0.82635         1.03059         1.14628               0.84272            0.79641           0.87964              0.67411       0.89102       0.84629       1.12309  0.000664  0.000664  0.000664  0.694663
+1       2   134.2100         0.95311         0.95032         1.19474               0.70448            0.62869           0.67551              0.45053       1.22108       1.60973       1.33030  0.001298  0.001298  0.001298  0.473028
+2       3   200.6330         0.94785         0.92806         1.18881               0.85513            0.81962           0.87729              0.68607       0.80305       0.89764       1.03060  0.001898  0.001898  0.001898  0.705192
+3       4   267.0150         0.88364         0.87144         1.15940               0.90398            0.85970           0.93033              0.75435       0.71117       0.69080       0.99062  0.001852  0.001852  0.001852  0.771948
+4       5   333.3950         0.82573         0.79985         1.12782               0.94642            0.87572           0.94350              0.79146       0.63427       0.52836       0.92614  0.001802  0.001802  0.001802  0.806664
+5       6   399.7980         0.78694         0.76611         1.10686               0.94720            0.91350           0.96541              0.81559       0.57143       0.49767       0.88170  0.001752  0.001752  0.001752  0.830572
+6       7   466.1810         0.77829         0.73635         1.10572               0.91323            0.91983           0.95340              0.81855       0.56566       0.47454       0.87355  0.001703  0.001703  0.001703  0.832035
+7       8   532.5630         0.73143         0.70345         1.07916               0.93986            0.90663           0.96187              0.81348       0.58441       0.45506       0.89048  0.001654  0.001654  0.001654  0.828319
+8       9   598.8730         0.71971         0.67906         1.07336               0.96027            0.91793           0.96141              0.83591       0.53357       0.42176       0.85624  0.001604  0.001604  0.001604  0.848460
+9      10   665.2940         0.69431         0.65020         1.06419               0.95682            0.91151           0.97008              0.84583       0.51577       0.41082       0.83805  0.001554  0.001554  0.001554  0.858255
+10     11   731.6660         0.68305         0.64347         1.05276               0.95907            0.93354           0.97685              0.86948       0.48462       0.38040       0.81982  0.001505  0.001505  0.001505  0.880217
+11     12   798.0210         0.66931         0.62491         1.05005               0.95369            0.92089           0.97234              0.85087       0.50489       0.40325       0.84422  0.001455  0.001455  0.001455  0.863017
+12     13   864.3710         0.65842         0.60182         1.04462               0.94714            0.92613           0.97141              0.85901       0.48174       0.39254       0.83173  0.001406  0.001406  0.001406  0.870250
+13     14   930.7070         0.63182         0.57975         1.02585               0.96215            0.93882           0.98010              0.87447       0.46596       0.35456       0.80935  0.001357  0.001357  0.001357  0.885033
+14     15   997.2170         0.63434         0.58947         1.03195               0.96260            0.92318           0.96989              0.86327       0.47168       0.37582       0.81632  0.001307  0.001307  0.001307  0.873932
+15     16  1063.6000         0.62426         0.56238         1.02407               0.96859            0.94339           0.97705              0.87553       0.46233       0.35933       0.81158  0.001257  0.001257  0.001257  0.885682
+16     17  1129.9500         0.61080         0.56059         1.01526               0.96952            0.93946           0.98009              0.88537       0.43939       0.33259       0.79835  0.001208  0.001208  0.001208  0.894842
+17     18  1196.4400         0.61411         0.56345         1.02492               0.96051            0.93460           0.97489              0.87616       0.45645       0.35232       0.81778  0.001159  0.001159  0.001159  0.886033
+18     19  1262.8000         0.58432         0.53080         1.00752               0.97387            0.94362           0.98481              0.88951       0.42264       0.30348       0.79311  0.001109  0.001109  0.001109  0.899040
+19     20  1329.2000         0.58079         0.52479         1.00847               0.96890            0.93565           0.97770              0.88572       0.43501       0.32338       0.80977  0.001059  0.001059  0.001059  0.894918
+20     21  1395.5300         0.57696         0.51627         1.00358               0.97069            0.94318           0.97971              0.89027       0.42367       0.30588       0.80214  0.001010  0.001010  0.001010  0.899214
+21     22  1461.9300         0.57261         0.51059         0.99846               0.97460            0.93987           0.97922              0.89785       0.41964       0.30895       0.78871  0.000960  0.000960  0.000960  0.905987
+22     23  1528.3400         0.56503         0.50369         0.99551               0.97241            0.94831           0.98369              0.90315       0.41083       0.30575       0.78561  0.000911  0.000911  0.000911  0.911204
+23     24  1594.9400         0.55103         0.49991         0.98746               0.96177            0.95536           0.98471              0.90502       0.38949       0.28353       0.77511  0.000861  0.000861  0.000861  0.912989
+24     25  1661.3100         0.55846         0.48769         0.99578               0.97040            0.95042           0.98473              0.90798       0.38645       0.28775       0.77794  0.000812  0.000812  0.000812  0.915655
+25     26  1727.7000         0.53454         0.47830         0.98071               0.97511            0.93987           0.98092              0.89932       0.39103       0.28353       0.77507  0.000763  0.000763  0.000763  0.907480
+26     27  1794.0400         0.53189         0.47450         0.98437               0.97750            0.94726           0.98472              0.90063       0.38904       0.27564       0.78496  0.000713  0.000713  0.000713  0.909039
+27     28  1860.4900         0.53275         0.46394         0.98475               0.96597            0.95819           0.98481              0.91315       0.38117       0.27440       0.77699  0.000664  0.000664  0.000664  0.920316
+28     29  1926.9000         0.51832         0.46081         0.97594               0.98139            0.94558           0.98549              0.91473       0.36549       0.26404       0.76780  0.000614  0.000614  0.000614  0.921806
+29     30  1993.3500         0.50518         0.44867         0.97228               0.98582            0.95308           0.98720              0.91720       0.36674       0.25559       0.76767  0.000565  0.000565  0.000565  0.924200
+30     31  2059.7300         0.40578         0.29995         0.91161               0.97936            0.94304           0.98642              0.90765       0.38925       0.27508       0.78446  0.000515  0.000515  0.000515  0.915527
+31     32  2126.0200         0.39608         0.28208         0.90025               0.96481            0.95429           0.98580              0.90637       0.38674       0.27439       0.77829  0.000465  0.000465  0.000465  0.914313
+32     33  2192.4500         0.39368         0.27698         0.89812               0.97231            0.95359           0.98524              0.91057       0.38567       0.26275       0.78026  0.000416  0.000416  0.000416  0.918037
+33     34  2258.5000         0.38029         0.26692         0.89199               0.98354            0.94525           0.98656              0.91770       0.36504       0.25270       0.76291  0.000367  0.000367  0.000367  0.924586
+34     35  2324.6300         0.37470         0.25992         0.89232               0.98261            0.94831           0.98662              0.91872       0.35769       0.24982       0.76537  0.000317  0.000317  0.000317  0.925510
+35     36  2390.7400         0.36453         0.25089         0.88400               0.95991            0.96414           0.98667              0.92604       0.34538       0.24144       0.74730  0.000267  0.000267  0.000267  0.932103
+36     37  2456.8800         0.35567         0.24712         0.88474               0.96127            0.96860           0.98811              0.92728       0.34646       0.24412       0.74766  0.000218  0.000218  0.000218  0.933363
+37     38  2522.9900         0.35089         0.23625         0.88114               0.97424            0.95728           0.98692              0.92447       0.34590       0.23993       0.74507  0.000169  0.000169  0.000169  0.930715
+38     39  2589.1100         0.34729         0.23189         0.88015               0.97233            0.96378           0.98826              0.92934       0.33737       0.22803       0.74467  0.000119  0.000119  0.000119  0.935232
+39     40  2655.2800         0.34120         0.22613         0.87887               0.96587            0.97152           0.98645              0.92815       0.33393       0.22483       0.74185  0.000069  0.000069  0.000069  0.933980
+epochs run: 40; chosen epoch (best val fitness = 0.1*mAP50+0.9*mAP50-95): 39
+  y_embed = grid.cumsum(dim=0) - 0.5
+.venv/lib/python3.12/site-packages/sam2/modeling/position_encoding.py:162: UserWarning: cumsum_cuda_kernel does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True, warn_only=True)'. You can file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation. (Triggered internally at ../aten/src/ATen/Context.cpp:91.)
+  x_embed = grid.cumsum(dim=1) - 0.5
+  conf 0.10 -> selection score 0.8615
+  conf 0.15 -> selection score 0.8675
+  conf 0.20 -> selection score 0.8711
+  conf 0.25 -> selection score 0.8692
+  conf 0.30 -> selection score 0.8682
+  conf 0.35 -> selection score 0.8688
+  conf 0.40 -> selection score 0.8692
+  conf 0.50 -> selection score 0.8669
+  conf 0.60 -> selection score 0.8583
+  conf 0.70 -> selection score 0.8420
+chosen YOLO conf: 0.2; B validation metrics: {
+ "n_images": 518,
+ "n_hand_images": 518,
+ "n_hand_free_images": 0,
+ "mean_iou": 0.8710515688418848,
+ "mean_dice": 0.9225881218477376,
+ "share_iou_lt_0_5": 0.03667953667953668,
+ "det_precision": 0.9290780141843972,
+ "det_recall": 0.9672995780590717,
+ "ap50": 0.981469823115998,
+ "n_gt_boxes": 948,
+ "fp_rate_hand_free": null
+}

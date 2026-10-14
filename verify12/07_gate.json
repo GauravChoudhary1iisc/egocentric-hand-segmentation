@@ -1,0 +1,15 @@
+{
+  "derived_from": "baseline A on VALIDATION (written before any test evaluation)",
+  "rules": [
+    {
+      "name": "mean_iou_hand_images",
+      "op": ">=",
+      "threshold": 0.5570639816736269
+    },
+    {
+      "name": "share_iou_lt_0_5",
+      "op": "<=",
+      "threshold": 0.4613899613899614
+    }
+  ]
+}

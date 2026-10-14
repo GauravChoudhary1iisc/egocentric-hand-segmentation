@@ -1,0 +1,4 @@
+host annotate: wrote 50 masks to /home/gaurav/Desktop/12/host_out
+Docker step NOT DONE: Docker cannot give containers GPU access (NVIDIA container runtime / nvidia-container-toolkit is not installed; `docker info` lists only runc). The image was not built or run. Exact error from `docker run --rm --gpus all hello-world`: docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]]
+
+Run 'docker run --help' for more information

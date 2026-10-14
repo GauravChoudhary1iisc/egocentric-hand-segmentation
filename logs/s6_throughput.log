@@ -1,0 +1,28 @@
+python 3.12.3 | torch 2.5.1+cu121 | CUDA (torch build) 12.1 | cudnn 90100
+GPU: NVIDIA GeForce RTX 3050 | total VRAM 7.65 GiB
+timing includes: disk reading+decode, detector preprocessing+inference+NMS, SAM2 preprocessing+inference, mask union postprocessing, PNG writing. batch size fixed at 2; 1126 images; 1 warm-up pass of 5 batches.
+run 1: 11.44 img/s, 87.4 ms/img | read 3.3 ms/img, det 12.5 ms/img, sam 69.0 ms/img, post_write 2.5 ms/img
+run 2: 11.41 img/s, 87.6 ms/img | read 3.3 ms/img, det 12.5 ms/img, sam 69.3 ms/img, post_write 2.5 ms/img
+run 3: 11.41 img/s, 87.6 ms/img | read 3.3 ms/img, det 12.5 ms/img, sam 69.3 ms/img, post_write 2.5 ms/img
+{
+ "n_images": 1126,
+ "batch_size": 2,
+ "gpu": "NVIDIA GeForce RTX 3050",
+ "included": "disk read+decode, detector pre/infer/NMS, SAM2 pre/infer, mask union, PNG write",
+ "img_per_s": {
+  "min": 11.40937712649282,
+  "median": 11.409712589261067,
+  "max": 11.443277616403254
+ },
+ "ms_per_img": {
+  "min": 87.38755044853232,
+  "median": 87.64462664390072,
+  "max": 87.64720360395295
+ },
+ "component_ms_per_img_median": {
+  "read": 3.281448321163879,
+  "det": 12.518314380847169,
+  "sam": 69.26016113762189,
+  "post_write": 2.481798874627845
+ }
+}

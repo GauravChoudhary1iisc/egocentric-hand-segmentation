@@ -1,0 +1,71 @@
+python 3.12.3 | torch 2.5.1+cu121 | CUDA (torch build) 12.1 | cudnn 90100
+GPU: NVIDIA GeForce RTX 3050 | total VRAM 7.65 GiB
+DATA_DIR = data_raw/data
+folder structure:
+data/  (1 files {'.zip': 1})
+  test_indomain/  (0 files {})
+    image/  (1126 files {'.jpg': 1126})
+    label/  (1126 files {'.png': 1126})
+  test_outdomain/  (0 files {})
+    image/  (500 files {'.jpg': 500})
+    label/  (500 files {'.png': 500})
+  train/  (0 files {})
+    image/  (8993 files {'.jpg': 8993})
+    label/  (8993 files {'.png': 8993})
+  val/  (0 files {})
+    image/  (1124 files {'.jpg': 1124})
+    label/  (1124 files {'.png': 1124})
+official splits found: ['train', 'val', 'test_indomain', 'test_outdomain']
+NOTE: the repo README lists a 'contact' sub-folder per split; it is NOT present in this download (not needed here).
+train: 8993 images, 8993 labels, images without label: 0
+val: 1124 images, 1124 labels, images without label: 0
+test_indomain: 1126 images, 1126 labels, images without label: 0
+test_outdomain: 500 images, 500 labels, images without label: 0
+label files: ndim counts {2: 11743} | label/image size mismatch: 0
+unique pixel values over ALL label masks (value: #masks containing it): {0: 11743, 1: 10574, 2: 11062, 3: 5609, 4: 6762, 5: 3235, 6: 487, 7: 1196, 8: 1284}
+  train: {0: 8993, 1: 8086, 2: 8463, 3: 4244, 4: 5129, 5: 2526, 6: 376, 7: 855, 8: 923}
+  val: {0: 1124, 1: 1015, 2: 1056, 3: 536, 4: 654, 5: 305, 6: 44, 7: 117, 8: 111}
+  test_indomain: {0: 1126, 1: 1017, 2: 1064, 3: 529, 4: 632, 5: 307, 6: 42, 7: 125, 8: 113}
+  test_outdomain: {0: 500, 1: 456, 2: 479, 3: 300, 4: 347, 5: 97, 6: 25, 7: 99, 8: 137}
+README encoding: 0 bg, 1 left hand, 2 right hand, 3-8 interacting objects. Using ONLY 1 and 2, merged into one 'hand' class (left/right are separate ids, so merging is always possible).
+images with both left and right hand pixels: 9895, left only: 679, right only: 1167
+image sizes (h x w):  {(1080, 1440): 3702, (1440, 1920): 2454, (256, 456): 2116, (1080, 1920): 1504, (1920, 2560): 937, (480, 640): 803, (2160, 3840): 202, (1440, 2560): 21}
+counts per split x source:
+source          authors_own(escape)  ego4d  epic_kitchens  thu_read  youtube    All
+split                                                                              
+test_indomain                    47    774            217        88        0   1126
+test_outdomain                    0      0              0         0      500    500
+train                           444   6227           1685       637        0   8993
+val                              61    767            218        78        0   1124
+All                             552   7768           2120       803      500  11743
+videos per split x source:
+source          authors_own(escape)  ego4d  epic_kitchens  thu_read  youtube
+split                                                                       
+test_indomain                    14    455            185        88        0
+test_outdomain                    0      0              0         0       27
+train                            15    858            629       637        0
+val                              14    448            186        78        0
+video leak check ('same video' = same filename minus trailing frame number):
+  train & val: 625 shared videos (4825 train images, 1019 val images)
+  test_indomain & train: 633 shared videos (1016 test_indomain images, 4971 train images)
+  test_indomain & val: 333 shared videos (606 test_indomain images, 617 val images)
+  test_indomain & test_outdomain: 0 shared videos (0 test_indomain images, 0 test_outdomain images)
+  test_outdomain & train: 0 shared videos (0 test_outdomain images, 0 train images)
+  test_outdomain & val: 0 shared videos (0 test_outdomain images, 0 val images)
+hand-free images per split: {'train': 1, 'val': 1} | handling: kept everywhere; YOLO sees them as background (empty label file); IoU/Dice are reported on hand images only; hand-free images are used for the false-positive rate.
+leak-free video-level split: dropped 5588 train/val images from 641 videos shared with test_indomain; official val replaced by a seeded video-level val (11% of images per source).
+source          authors_own(escape)  ego4d  epic_kitchens  thu_read  youtube   All
+split                                                                             
+test_indomain                    47    774            217        88        0  1126
+test_outdomain                    0      0              0         0      500   500
+train                             0   2107           1268       636        0  4011
+val                              16    262            161        79        0   518
+All                              63   3143           1646       803      500  6155
+  check train & val: shared videos = 0
+  check test_indomain & train: shared videos = 0
+  check test_indomain & val: shared videos = 0
+  check test_indomain & test_outdomain: shared videos = 0
+  check test_outdomain & train: shared videos = 0
+  check test_outdomain & val: shared videos = 0
+hand-free images per FINAL split: {'dropped_leak': 2}
+saved outputs/split.json and outputs/features.csv

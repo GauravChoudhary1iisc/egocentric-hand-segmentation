@@ -1,0 +1,9 @@
+numpy==1.26.4
+opencv-python-headless==4.10.0.84
+pandas==2.2.3
+scipy==1.14.1
+pillow==11.0.0
+tqdm==4.67.1
+transformers==4.46.3
+ultralytics==8.3.40
+sam2==1.1.0

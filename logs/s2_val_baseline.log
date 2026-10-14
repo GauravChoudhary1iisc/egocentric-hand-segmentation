@@ -1,0 +1,75 @@
+python 3.12.3 | torch 2.5.1+cu121 | CUDA (torch build) 12.1 | cudnn 90100
+GPU: NVIDIA GeForce RTX 3050 | total VRAM 7.65 GiB
+blur tertile cut-offs (train): [136.7910619859845, 490.8515415574264]
+hand-size tertile cut-offs (train, hand images): [0.06159154940302136, 0.10754465917397651]
+timing probe (16 val images, after 1 warm-up batch):
+  batch 1: GDINO 394.8 ms/img, SAM2 230.6 ms/img, peak alloc 2.03 GiB -> est. 5.4 min for val (518 imgs)
+  batch 2: GDINO 379.2 ms/img, SAM2 227.6 ms/img, peak alloc 3.13 GiB -> est. 5.2 min for val (518 imgs)
+  batch 4: GDINO 378.3 ms/img, SAM2 244.7 ms/img, peak alloc 5.29 GiB -> est. 5.4 min for val (518 imgs)
+chosen batch size: 2 (fastest in probe; model sizes are fixed by the task: GDINO tiny, SAM2 small)
+
+A/val:   0%|          | 0/259 [00:00<?, ?it/s]A/val:   8%|▊         | 22/259 [00:31<05:35,  1.42s/it]A/val:   8%|▊         | 22/259 [00:49<05:35,  1.42s/it]A/val:  18%|█▊        | 46/259 [01:01<04:42,  1.33s/it]A/val:  18%|█▊        | 46/259 [01:19<04:42,  1.33s/it]A/val:  27%|██▋       | 69/259 [01:32<04:13,  1.33s/it]A/val:  27%|██▋       | 69/259 [01:49<04:13,  1.33s/it]A/val:  36%|███▌      | 93/259 [02:02<03:36,  1.30s/it]A/val:  36%|███▌      | 93/259 [02:19<03:36,  1.30s/it]A/val:  45%|████▍     | 116/259 [02:33<03:07,  1.31s/it]A/val:  45%|████▍     | 116/259 [02:49<03:07,  1.31s/it]A/val:  56%|█████▌    | 145/259 [03:03<02:17,  1.21s/it]A/val:  56%|█████▌    | 145/259 [03:19<02:17,  1.21s/it]A/val:  67%|██████▋   | 174/259 [03:33<01:37,  1.15s/it]A/val:  67%|██████▋   | 174/259 [03:49<01:37,  1.15s/it]A/val:  75%|███████▍  | 194/259 [04:03<01:20,  1.24s/it]A/val:  75%|███████▍  | 194/259 [04:19<01:20,  1.24s/it]A/val:  87%|████████▋ | 226/259 [04:33<00:37,  1.13s/it]A/val:  87%|████████▋ | 226/259 [04:49<00:37,  1.13s/it]A/val:  97%|█████████▋| 250/259 [05:04<00:10,  1.17s/it]A/val: 100%|██████████| 259/259 [05:14<00:00,  1.21s/it]
+  box 0.20 text 0.20 -> selection score 0.5571
+  box 0.20 text 0.25 -> selection score 0.4674
+  box 0.20 text 0.30 -> selection score 0.4127
+  box 0.20 text 0.35 -> selection score 0.3672
+  box 0.20 text 0.40 -> selection score 0.3297
+  box 0.25 text 0.20 -> selection score 0.4674
+  box 0.25 text 0.25 -> selection score 0.4674
+  box 0.25 text 0.30 -> selection score 0.4127
+  box 0.25 text 0.35 -> selection score 0.3672
+  box 0.25 text 0.40 -> selection score 0.3297
+  box 0.30 text 0.20 -> selection score 0.4127
+  box 0.30 text 0.25 -> selection score 0.4127
+  box 0.30 text 0.30 -> selection score 0.4127
+  box 0.30 text 0.35 -> selection score 0.3672
+  box 0.30 text 0.40 -> selection score 0.3297
+  box 0.35 text 0.20 -> selection score 0.3672
+  box 0.35 text 0.25 -> selection score 0.3672
+  box 0.35 text 0.30 -> selection score 0.3672
+  box 0.35 text 0.35 -> selection score 0.3672
+  box 0.35 text 0.40 -> selection score 0.3297
+  box 0.40 text 0.20 -> selection score 0.3297
+  box 0.40 text 0.25 -> selection score 0.3297
+  box 0.40 text 0.30 -> selection score 0.3297
+  box 0.40 text 0.35 -> selection score 0.3297
+  box 0.40 text 0.40 -> selection score 0.3297
+  box 0.45 text 0.20 -> selection score 0.2927
+  box 0.45 text 0.25 -> selection score 0.2927
+  box 0.45 text 0.30 -> selection score 0.2927
+  box 0.45 text 0.35 -> selection score 0.2927
+  box 0.45 text 0.40 -> selection score 0.2927
+  box 0.50 text 0.20 -> selection score 0.2482
+  box 0.50 text 0.25 -> selection score 0.2482
+  box 0.50 text 0.30 -> selection score 0.2482
+  box 0.50 text 0.35 -> selection score 0.2482
+  box 0.50 text 0.40 -> selection score 0.2482
+chosen GDINO thresholds: {'box_threshold': 0.2, 'text_threshold': 0.2} (val selection score 0.5571)
+baseline A validation metrics: {
+ "n_images": 518,
+ "n_hand_images": 518,
+ "n_hand_free_images": 0,
+ "mean_iou": 0.5570639816736269,
+ "mean_dice": 0.6694750921820056,
+ "share_iou_lt_0_5": 0.4613899613899614,
+ "det_precision": 0.25,
+ "det_recall": 0.5126582278481012,
+ "ap50": 0.1287214532924158,
+ "n_gt_boxes": 948,
+ "fp_rate_hand_free": null
+}
+gate.json: {
+ "derived_from": "baseline A on VALIDATION (written before any test evaluation)",
+ "rules": [
+  {
+   "name": "mean_iou_hand_images",
+   "op": ">=",
+   "threshold": 0.5570639816736269
+  },
+  {
+   "name": "share_iou_lt_0_5",
+   "op": "<=",
+   "threshold": 0.4613899613899614
+  }
+ ]
+}

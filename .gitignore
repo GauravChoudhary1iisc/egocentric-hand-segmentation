@@ -1,0 +1,26 @@
+# Environment / caches
+.venv/
+__pycache__/
+*.pyc
+
+# Dataset (EgoHOS, ~4.3 GB) and anything derived from its images
+data_raw/
+yolo_data/
+sample50/
+host_out/
+face_blur_examples/
+docker_out/
+
+# Model weights and checkpoints (download or retrain; see README)
+*.pt
+*.pth
+*.safetensors
+weights/
+runs/yolo_hand/weights/
+
+# Large regenerable output (written by s1_data_checks.py)
+outputs/features.csv
+
+# Local install logs (contain absolute local paths)
+install.log
+outputs_install.log

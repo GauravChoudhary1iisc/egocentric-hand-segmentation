@@ -1,0 +1,270 @@
+{
+  "seed": 42,
+  "gdino_model": "IDEA-Research/grounding-dino-tiny",
+  "gdino_prompt": "hand.",
+  "gdino_box_threshold": 0.2,
+  "gdino_text_threshold": 0.2,
+  "selection_objective": "Objective used to choose thresholds on VALIDATION: mean over ALL images of IoU, where a\n    hand-free image scores 1 if nothing is predicted and 0 otherwise (penalises false positives).",
+  "sam2_cfg": "configs/sam2.1/sam2.1_hiera_s.yaml",
+  "max_boxes": 6,
+  "max_candidates": 20,
+  "batch_size": 2,
+  "blur_cutoffs_train_tertiles": [
+    136.7910619859845,
+    490.8515415574264
+  ],
+  "hand_size_cutoffs_train_tertiles": [
+    0.06159154940302136,
+    0.10754465917397651
+  ],
+  "baseline_val_metrics": {
+    "n_images": 518,
+    "n_hand_images": 518,
+    "n_hand_free_images": 0,
+    "mean_iou": 0.5570639816736269,
+    "mean_dice": 0.6694750921820056,
+    "share_iou_lt_0_5": 0.4613899613899614,
+    "det_precision": 0.25,
+    "det_recall": 0.5126582278481012,
+    "ap50": 0.1287214532924158,
+    "n_gt_boxes": 948,
+    "fp_rate_hand_free": null
+  },
+  "threshold_grid_scores": [
+    {
+      "box_threshold": 0.2,
+      "text_threshold": 0.2,
+      "score": 0.5570639816736269
+    },
+    {
+      "box_threshold": 0.2,
+      "text_threshold": 0.25,
+      "score": 0.4673644425303706
+    },
+    {
+      "box_threshold": 0.2,
+      "text_threshold": 0.3,
+      "score": 0.41268323726442185
+    },
+    {
+      "box_threshold": 0.2,
+      "text_threshold": 0.35,
+      "score": 0.3672425067937056
+    },
+    {
+      "box_threshold": 0.2,
+      "text_threshold": 0.4,
+      "score": 0.32974819663141425
+    },
+    {
+      "box_threshold": 0.25,
+      "text_threshold": 0.2,
+      "score": 0.4673644425303706
+    },
+    {
+      "box_threshold": 0.25,
+      "text_threshold": 0.25,
+      "score": 0.4673644425303706
+    },
+    {
+      "box_threshold": 0.25,
+      "text_threshold": 0.3,
+      "score": 0.41268323726442185
+    },
+    {
+      "box_threshold": 0.25,
+      "text_threshold": 0.35,
+      "score": 0.3672425067937056
+    },
+    {
+      "box_threshold": 0.25,
+      "text_threshold": 0.4,
+      "score": 0.32974819663141425
+    },
+    {
+      "box_threshold": 0.3,
+      "text_threshold": 0.2,
+      "score": 0.41268323726442185
+    },
+    {
+      "box_threshold": 0.3,
+      "text_threshold": 0.25,
+      "score": 0.41268323726442185
+    },
+    {
+      "box_threshold": 0.3,
+      "text_threshold": 0.3,
+      "score": 0.41268323726442185
+    },
+    {
+      "box_threshold": 0.3,
+      "text_threshold": 0.35,
+      "score": 0.3672425067937056
+    },
+    {
+      "box_threshold": 0.3,
+      "text_threshold": 0.4,
+      "score": 0.32974819663141425
+    },
+    {
+      "box_threshold": 0.35,
+      "text_threshold": 0.2,
+      "score": 0.3672425067937056
+    },
+    {
+      "box_threshold": 0.35,
+      "text_threshold": 0.25,
+      "score": 0.3672425067937056
+    },
+    {
+      "box_threshold": 0.35,
+      "text_threshold": 0.3,
+      "score": 0.3672425067937056
+    },
+    {
+      "box_threshold": 0.35,
+      "text_threshold": 0.35,
+      "score": 0.3672425067937056
+    },
+    {
+      "box_threshold": 0.35,
+      "text_threshold": 0.4,
+      "score": 0.32974819663141425
+    },
+    {
+      "box_threshold": 0.4,
+      "text_threshold": 0.2,
+      "score": 0.32974819663141425
+    },
+    {
+      "box_threshold": 0.4,
+      "text_threshold": 0.25,
+      "score": 0.32974819663141425
+    },
+    {
+      "box_threshold": 0.4,
+      "text_threshold": 0.3,
+      "score": 0.32974819663141425
+    },
+    {
+      "box_threshold": 0.4,
+      "text_threshold": 0.35,
+      "score": 0.32974819663141425
+    },
+    {
+      "box_threshold": 0.4,
+      "text_threshold": 0.4,
+      "score": 0.32974819663141425
+    },
+    {
+      "box_threshold": 0.45,
+      "text_threshold": 0.2,
+      "score": 0.29270281401050663
+    },
+    {
+      "box_threshold": 0.45,
+      "text_threshold": 0.25,
+      "score": 0.29270281401050663
+    },
+    {
+      "box_threshold": 0.45,
+      "text_threshold": 0.3,
+      "score": 0.29270281401050663
+    },
+    {
+      "box_threshold": 0.45,
+      "text_threshold": 0.35,
+      "score": 0.29270281401050663
+    },
+    {
+      "box_threshold": 0.45,
+      "text_threshold": 0.4,
+      "score": 0.29270281401050663
+    },
+    {
+      "box_threshold": 0.5,
+      "text_threshold": 0.2,
+      "score": 0.24822712234632255
+    },
+    {
+      "box_threshold": 0.5,
+      "text_threshold": 0.25,
+      "score": 0.24822712234632255
+    },
+    {
+      "box_threshold": 0.5,
+      "text_threshold": 0.3,
+      "score": 0.24822712234632255
+    },
+    {
+      "box_threshold": 0.5,
+      "text_threshold": 0.35,
+      "score": 0.24822712234632255
+    },
+    {
+      "box_threshold": 0.5,
+      "text_threshold": 0.4,
+      "score": 0.24822712234632255
+    }
+  ],
+  "yolo_model": "yolo11s.pt fine-tuned",
+  "yolo_best_epoch": 39,
+  "yolo_epochs_run": 40,
+  "yolo_batch": 16,
+  "yolo_conf": 0.2,
+  "finetuned_val_metrics": {
+    "n_images": 518,
+    "n_hand_images": 518,
+    "n_hand_free_images": 0,
+    "mean_iou": 0.8710515688418848,
+    "mean_dice": 0.9225881218477376,
+    "share_iou_lt_0_5": 0.03667953667953668,
+    "det_precision": 0.9290780141843972,
+    "det_recall": 0.9672995780590717,
+    "ap50": 0.981469823115998,
+    "n_gt_boxes": 948,
+    "fp_rate_hand_free": null
+  },
+  "yolo_conf_grid_scores": [
+    {
+      "conf": 0.1,
+      "score": 0.8614678019250365
+    },
+    {
+      "conf": 0.15,
+      "score": 0.8674879690861117
+    },
+    {
+      "conf": 0.2,
+      "score": 0.8710515688418848
+    },
+    {
+      "conf": 0.25,
+      "score": 0.8691819029549447
+    },
+    {
+      "conf": 0.3,
+      "score": 0.8681641368006642
+    },
+    {
+      "conf": 0.35,
+      "score": 0.8688047094270169
+    },
+    {
+      "conf": 0.4,
+      "score": 0.8691905662587888
+    },
+    {
+      "conf": 0.5,
+      "score": 0.866933728186014
+    },
+    {
+      "conf": 0.6,
+      "score": 0.8583091979069959
+    },
+    {
+      "conf": 0.7,
+      "score": 0.8420461322457946
+    }
+  ]
+}
